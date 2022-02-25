@@ -6,11 +6,12 @@
         <div class="logoContainer">
             PLATZ FÜR DAS LOGO
         </div>
-        <ul>
-            <li>
-                <mat-icon>perm_identity</mat-icon>Dashboard
+        <ul class="menuItems">
+            <li [routerLink]="['/']" routerLinkActive="routerLinkActive">
+                <mat-icon>fact_check</mat-icon>Dashboard
             </li>
-            <li>User</li>
+            <li [routerLink]="['/user']" routerLinkActive="routerLinkActive">
+                <mat-icon>perm_identity</mat-icon>User</li>
         </ul>
     </mat-drawer>
 
@@ -26,7 +27,11 @@
             </mat-toolbar-row>
         </mat-toolbar>
 
+        <!-- componente user und dashboard hier drunter anzeigen -->
+
+        <div class="routerContainer">
+            <router-outlet></router-outlet>
+
+        </div>
 
     </div>
-
-</mat-drawer-container>
