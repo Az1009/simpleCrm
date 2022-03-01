@@ -1,5 +1,26 @@
 <!-- button aus md-->
 
+<!-- caddModule -->
+<mat-card>
+    <table class="userTable">
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>City</th>
+        </tr>
+        <!-- soll angezeigt werden, für jeden user -->
+        <tr *ngFor="let user of allUsers">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.eMail}}</td>
+            <td>{{user.city}}</td>
+        </tr>
+
+
+
+
+    </table>
+</mat-card>
+
 <button (click)="openDialog()" class="addUserButton" mat-fab color="primary" matTooltip="Add user">
     <mat-icon>add</mat-icon>
   </button>
