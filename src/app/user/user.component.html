@@ -9,7 +9,8 @@
             <th>City</th>
         </tr>
         <!-- soll angezeigt werden, für jeden user -->
-        <tr *ngFor="let user of allUsers">
+        <!-- vid 20 id aus db herausfinden rl -->
+        <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.customIdName]">
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.eMail}}</td>
             <td>{{user.city}}</td>

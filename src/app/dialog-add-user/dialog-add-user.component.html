@@ -20,7 +20,7 @@
         <div>
             <mat-form-field class="fullWidth" appearance="outline">
                 <mat-label>E-Mail</mat-label>
-                <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="E-Mail">
+                <input [disabled]="loading" [(ngModel)]="user.eMail" matInput placeholder="E-Mail">
             </mat-form-field>
         </div>
         <div>
@@ -54,7 +54,8 @@
         </div>
     </div>
     <div mat-dialog-actions>
-        <button [disabled]="loading" mat-button>Cancel</button>
+        <!-- V19 dialog schliessen-->
+        <button [disabled]="loading" mat-button (click)="dialogRef.close()">Cancel</button>
         <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
     </div>
 </div>

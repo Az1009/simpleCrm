@@ -33,6 +33,9 @@ this.loading =true;
       this.dialogRef.close();
       console.log('adding user finished', result)
 
+      //V19 dialog schliessen
+      this.dialogRef.close();
+
     });
   }
 

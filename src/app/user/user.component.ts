@@ -26,7 +26,8 @@ allUsers=[];
     // firestore abonieren Daten anzeigen und in daas array allUsers einfügen
     this.firestore
     .collection('users')
-    .valueChanges()
+    // Vid 20 id herausfinden db {}
+    .valueChanges({idField: 'customIdName'})
     .subscribe((changes:any)=>{
       console.log('Recived changes from DB', changes );
       this.allUsers= changes;
