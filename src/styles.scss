@@ -21,3 +21,14 @@ body {
 .fullWidth {
     width: 100%;
 }
+
+.dialogContainer {
+    position: relative;
+    mat-progress-bar {
+        position: absolute;
+        right: -24px;
+        left: -24px;
+        top: -24px;
+        width: calc(100% + 48px);
+    }
+}

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/class/user.class';
+import { DialogEditAdressComponent } from '../dialog-edit-adress/dialog-edit-adress.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -19,7 +22,10 @@ export class UserDetailComponent implements OnInit {
 
   //vid 25 1. id aus der url activateRoute
   // v 26 1. user aus der db auslesen
-  constructor(private route:ActivatedRoute, private firestore: AngularFirestore) { }
+  // v 29. 1 MatDialog service
+  constructor(private route:ActivatedRoute, 
+    private firestore: AngularFirestore, 
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
       //vid 25 2.id aus der url
@@ -43,9 +49,26 @@ export class UserDetailComponent implements OnInit {
       console.log('retrived user',this.user)
     });
   }
-  // vid27. 2. funktion erstellen
-openAddressDialog(){
+  //v29. 2.funktion editMenu definieren
+  editMenu(){
+    // v30. um in dialogEditadress darauf zugreifen zu klnne (let dialog+DialogInst)
+  let dialog= this.dialog.open(DialogEditAdressComponent);
+  //v32 mit new User (this.user.toJSON erstellen wir eine kopie von unseren nutzer)
+  dialog.componentInstance.user= new User(this.user.toJSON());
+  //v33 2.update firestore userId übergeben
+  dialog.componentInstance.userId= this.userId;
 
+
+  }
+  //// v29. funkt editUser definieren
+  editUserDetails(){
+   let dialog= this.dialog.open(DialogEditUserComponent);
+   //v32 mit new User (this.user.toJSON erstellen wir eine kopie von unseren nutzer)
+    dialog.componentInstance.user= new User(this.user.toJSON());
+    //v33 2.update firestore userId übergeben
+    dialog.componentInstance.userId= this.userId;
+
+
+  }
 }
 
-}

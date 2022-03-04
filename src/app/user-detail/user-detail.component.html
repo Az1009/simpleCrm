@@ -1,6 +1,12 @@
 <!--vid23 1.detailansicht user -->
 <mat-card class="userDetailHeader">
-
+    <!-- menu zum bearbeiten -->
+    <button mat-icon-button class="pinRightUpperCorner" [matMenuTriggerFor]="userMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button >
+    <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="editUserDetails()">Edit</button>
+    </mat-menu>
     <img src="./assets/img/profile.png" alt="">
 
     <div class="userDetails">
@@ -15,9 +21,16 @@
 
 <mat-card class="mt-32">
     <!-- 27.Vid. 1 icon aus material Design -->
-    <button mat-icon-button class="pinRightUpperCorner" (click)="openAddressDialog">
+    <!-- vid 28. 2 verknüpfen des menus -->
+    <button mat-icon-button class="pinRightUpperCorner" [matMenuTriggerFor]="addressMenu">
     <mat-icon>more_vert</mat-icon>
 </button >
+
+<!-- v28. 1. menu aus angulat material design einfügen -->
+<mat-menu #addressMenu="matMenu">
+    <!-- 28. 4. click button und funktion -->
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+    </mat-menu>
     <mat-card-title>Address</mat-card-title>
     <mat-card-content>
         <!-- vid.26 6 daten die aus der db ausgelesen werden sollen -->
