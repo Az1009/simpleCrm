@@ -10,7 +10,8 @@ import { User } from 'src/class/user.class';
 })
 export class DialogEditAdressComponent implements OnInit {
   // v30. user hier anlegen
-  user:User;
+  // für test new user
+  user:User = new User();
   userId: string;
   loading = false;
 // v30 componente einfügen

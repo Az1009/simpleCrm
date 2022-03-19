@@ -10,7 +10,7 @@ import { User } from 'src/class/user.class';
 })
 export class DialogEditUserComponent implements OnInit {
   // v31. 2.user hier anlegen und ladefunktion 
-  user:User;
+  user:User = new User();
   userId: string;
   birthDate:Date;
   loading = false;

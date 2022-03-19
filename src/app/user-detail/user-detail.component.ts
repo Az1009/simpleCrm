@@ -39,6 +39,7 @@ export class UserDetailComponent implements OnInit {
   }
   // v26. 2. user aus der db auslesen getuser funk erstellen
   getUser(){
+    if(this.userId){
     this.firestore
     .collection('users')
     .doc(this.userId)
@@ -48,6 +49,7 @@ export class UserDetailComponent implements OnInit {
       this.user= new User(user);
       console.log('retrived user',this.user)
     });
+  }
   }
   //v29. 2.funktion editMenu definieren
   editMenu(){
